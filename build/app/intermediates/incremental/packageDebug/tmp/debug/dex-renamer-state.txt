@@ -1,0 +1,4 @@
+#Thu Oct 31 14:45:42 EET 2019
+base.0=/home/tatyana/fl_test/homework2/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

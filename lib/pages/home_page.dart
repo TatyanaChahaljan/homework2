@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:cats/pages/image_details_page.dart';
 import 'package:flutter/material.dart';
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -14,7 +13,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var numGenerator = Random();
+  final _numGenerator = Random();
+
+  final List<String>  _todoItems = [
+    'resources/cats/1.jpg', 
+      'resources/cats/2.jpg', 
+      'resources/cats/3.jpg', 
+      'resources/cats/4.jpg', 
+      'resources/cats/5.jpg', 
+      'resources/cats/6.jpg', 
+    ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +30,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(5),
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
-        children: <Widget>[
-          _buildImageNavigator('resources/cats/1.jpg'),
-          _buildImageNavigator('resources/cats/2.jpg'),
-          _buildImageNavigator('resources/cats/3.jpg'),
-          _buildImageNavigator('resources/cats/4.jpg'),
-          _buildImageNavigator('resources/cats/5.jpg'),
-          _buildImageNavigator('resources/cats/6.jpg'),
-        ],
-      ),
+      body: 
+        GridView.builder(
+          itemCount: _todoItems.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (BuildContext context, int index) {     
+              return Container(                     
+                padding: const EdgeInsets.all(5.0),
+                child: _buildImageNavigator(_todoItems[index])
+              );
+          },
+        ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _pushAddTodoScreen(),
         tooltip: 'Random picture',
@@ -68,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text('Random picture')
             ),
               body: Center(
-                 child: Image.network('https://picsum.photos/400?image=${numGenerator.nextInt(100)}'),
+                 child: Image.network('https://picsum.photos/400?image=${_numGenerator.nextInt(100)}'),
               )
           );
         }

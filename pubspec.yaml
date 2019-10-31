@@ -64,13 +64,13 @@ flutter:
   fonts:
      - family: LiuJianMaoCao
        fonts:
-         - asset: fonts/LiuJianMaoCao-Regular.ttf 
+         - asset: resources/fonts/LiuJianMaoCao-Regular.ttf 
      - family: Satisfy-Regular
        fonts: 
-         - asset: fonts/Satisfy-Regular.ttf    
+         - asset: resources/fonts/Satisfy-Regular.ttf    
      - family: Raleway-Regular
        fonts:
-         - asset: fonts/Raleway-Regular.ttf     
+         - asset: resources/fonts/Raleway-Regular.ttf     
           
 
   #   - family: Schyler
